@@ -20,6 +20,8 @@ interface ApiService {
     @POST("login")  // Perbaikan endpoint login
     suspend fun login(
         @Field("email") email: String,
-        @Field("password") password: String
+        @Field("password") password: String,
+        @Field("name") name: String? = null,
+        @Field("token") token: String? = null
     ): LoginResponse
 }

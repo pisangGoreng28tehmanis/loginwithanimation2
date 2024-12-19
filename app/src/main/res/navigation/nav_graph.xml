@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_home">
+
+    <!-- Home Fragment -->
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.app.ui.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <!-- Story Fragment -->
+    <fragment
+        android:id="@+id/nav_story"
+        android:name="com.example.app.ui.StoryFragment"
+        android:label="Story"
+        tools:layout="@layout/fragment_story" />
+
+    <!-- My Story Fragment -->
+    <fragment
+        android:id="@+id/nav_my_story"
+        android:name="com.example.app.ui.MyStoryFragment"
+        android:label="My Story"
+        tools:layout="@layout/fragment_my_story" />
+
+    <!-- Dashboard Fragment -->
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.example.app.ui.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <!-- Maps Fragment -->
+    <fragment
+        android:id="@+id/nav_maps"
+        android:name="com.example.app.ui.MapsFragment"
+        android:label="Maps"
+        tools:layout="@layout/fragment_maps" />
+
+    <!-- Logout Fragment -->
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.app.ui.LogoutFragment"
+        android:label="Logout"
+        tools:layout="@layout/fragment_logout" />
+</navigation>

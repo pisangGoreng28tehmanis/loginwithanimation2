@@ -40,15 +40,15 @@ class SignupActivity : AppCompatActivity() {
         }
 
         // Animasi fade-in untuk elemen lainnya
-        val fadeInImage = ObjectAnimator.ofFloat(binding.imageView, View.ALPHA, 0f, 1f).setDuration(700)
-        val fadeInTitle = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 0f, 1f).setDuration(700)
-        val fadeInNameText = ObjectAnimator.ofFloat(binding.nameTextView, View.ALPHA, 0f, 1f).setDuration(700)
-        val fadeInNameInput = ObjectAnimator.ofFloat(binding.nameEditTextLayout, View.ALPHA, 0f, 1f).setDuration(700)
-        val fadeInEmailText = ObjectAnimator.ofFloat(binding.emailTextView, View.ALPHA, 0f, 1f).setDuration(700)
-        val fadeInEmailInput = ObjectAnimator.ofFloat(binding.emailEditTextLayout, View.ALPHA, 0f, 1f).setDuration(700)
-        val fadeInPasswordText = ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 0f, 1f).setDuration(700)
-        val fadeInPasswordInput = ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 0f, 1f).setDuration(700)
-        val fadeInSignupButton = ObjectAnimator.ofFloat(binding.signupButton, View.ALPHA, 0f, 1f).setDuration(700)
+        val fadeInImage = ObjectAnimator.ofFloat(binding.imageView, View.ALPHA, 0f, 1f).setDuration(400)
+        val fadeInTitle = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 0f, 1f).setDuration(400)
+        val fadeInNameText = ObjectAnimator.ofFloat(binding.nameTextView, View.ALPHA, 0f, 1f).setDuration(400)
+        val fadeInNameInput = ObjectAnimator.ofFloat(binding.nameEditTextLayout, View.ALPHA, 0f, 1f).setDuration(400)
+        val fadeInEmailText = ObjectAnimator.ofFloat(binding.emailTextView, View.ALPHA, 0f, 1f).setDuration(400)
+        val fadeInEmailInput = ObjectAnimator.ofFloat(binding.emailEditTextLayout, View.ALPHA, 0f, 1f).setDuration(400)
+        val fadeInPasswordText = ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 0f, 1f).setDuration(400)
+        val fadeInPasswordInput = ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 0f, 1f).setDuration(400)
+        val fadeInSignupButton = ObjectAnimator.ofFloat(binding.signupButton, View.ALPHA, 0f, 1f).setDuration(400)
 
         // AnimatorSet untuk menjalankan animasi secara bertahap
         val animatorSet = AnimatorSet()
@@ -91,6 +91,13 @@ class SignupActivity : AppCompatActivity() {
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
 
+
+            // Validasi input
+            if (name.isBlank() || email.isBlank() || password.isBlank()) {
+                showAlertDialog("Input tidak boleh kosong!")
+                return@setOnClickListener
+            }
+
             if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 showErrorDialog("Semua field harus diisi!")
             } else if (password.length < 8) {
@@ -105,6 +112,9 @@ class SignupActivity : AppCompatActivity() {
                             is Result.Success -> {
                                 showLoading(false)
                                 showSuccessDialog(result.data)
+                                showAlertDialog("Registrasi Berhasil : ${result.data}")
+                                //arahkan ke laman login
+                                finish()
                             }
                             is Result.Error -> {
                                 showLoading(false)

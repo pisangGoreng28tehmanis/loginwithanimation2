@@ -10,6 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginWithAnimation">
+
+        <activity
+            android:name=".view.dashboard.DashboardActivity"
+            android:exported="true" />
         <activity
             android:name=".view.welcome.WelcomeActivity"
             android:exported="false" />

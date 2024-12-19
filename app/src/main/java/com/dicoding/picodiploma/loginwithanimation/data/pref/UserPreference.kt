@@ -18,7 +18,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         dataStore.edit { preferences ->
             preferences[EMAIL_KEY] = user.email
             preferences[TOKEN_KEY] = user.token
-            preferences[IS_LOGIN_KEY] = true
+            preferences[IS_LOGIN_KEY] = user.isLogin
         }
     }
 
@@ -27,11 +27,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             val email = preferences[EMAIL_KEY] ?: ""
             val token = preferences[TOKEN_KEY] ?: ""
             val isLogin = preferences[IS_LOGIN_KEY] ?: false
-            if (email.isNotBlank() && token.isNotBlank()) {
-                UserModel(email, token, isLogin)
-            } else {
-                UserModel("", "", false) // Jika data kosong, sesi dianggap tidak valid
-            }
+            UserModel(email, token, "", isLogin) // Assuming 'name' is optional or can be fetched later
         }
     }
 

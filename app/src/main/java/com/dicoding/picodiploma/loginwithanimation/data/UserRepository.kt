@@ -27,14 +27,25 @@ class UserRepository private constructor(
     fun login(email: String, password: String): Flow<Result<UserModel>> = flow {
         emit(Result.Loading) // Emit loading state
         try {
+            // Mengirim request login ke server
             val response = ApiConfig.getApiService().login(email, password)
+
+            // Mengecek apakah response error atau tidak
             if (response.error == false) {
-                val token = response.loginResult?.token
-                if (token != null) {
-                    val user = UserModel(email, token) // Buat UserModel dengan token
+                val loginResult = response.loginResult
+                val token = loginResult?.token
+                val name = loginResult?.name // Ambil nama dari respons
+
+                // Jika token ditemukan, buat objek UserModel dengan name dan token
+                if (token != null && name != null) {
+                    val user = UserModel(
+                        name = name,  // Dapatkan nilai name dari server
+                        email = email,
+                        token = token
+                    )
                     emit(Result.Success(user)) // Emit hasil sukses
                 } else {
-                    emit(Result.Error("Token tidak ditemukan"))
+                    emit(Result.Error("Token atau nama tidak ditemukan"))
                 }
             } else {
                 emit(Result.Error(response.message ?: "Terjadi kesalahan"))
@@ -45,6 +56,7 @@ class UserRepository private constructor(
             emit(Result.Error("Terjadi kesalahan"))
         }
     }
+
 
 
     companion object {
@@ -59,24 +71,36 @@ class UserRepository private constructor(
         fun login(email: String, password: String): Flow<Result<UserModel>> = flow {
             emit(Result.Loading) // Emit loading state
             try {
+                // Send login request to server
                 val response = ApiConfig.getApiService().login(email, password)
+
+                // Check if response is successful
                 if (response.error == false) {
-                    val token = response.loginResult?.token
-                    if (token != null) {
-                        val user = UserModel(email, token) // Buat UserModel dengan token
-                        emit(Result.Success(user)) // Emit hasil sukses
+                    val loginResult = response.loginResult
+                    val token = loginResult?.token
+                    val name = loginResult?.name // Get name from response
+
+                    // If token and name are found, create a UserModel object
+                    if (token != null && name != null) {
+                        val user = UserModel(
+                            name = name,  // Get name from the response
+                            email = email,
+                            token = token
+                        )
+                        emit(Result.Success(user)) // Emit success result
                     } else {
-                        emit(Result.Error("Token tidak ditemukan"))
+                        emit(Result.Error("Token or name not found"))
                     }
                 } else {
-                    emit(Result.Error(response.message ?: "Terjadi kesalahan"))
+                    emit(Result.Error(response.message ?: "An error occurred"))
                 }
             } catch (e: HttpException) {
-                emit(Result.Error("Kesalahan jaringan"))
+                emit(Result.Error("Network error"))
             } catch (e: Exception) {
-                emit(Result.Error("Terjadi kesalahan"))
+                emit(Result.Error("An error occurred"))
             }
         }
+
 
         fun register(name: String, email: String, password: String): Flow<Result<String>> = flow {
             emit(Result.Loading) // Emit loading state
