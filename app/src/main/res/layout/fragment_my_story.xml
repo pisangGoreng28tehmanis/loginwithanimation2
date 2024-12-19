@@ -5,30 +5,27 @@
     android:layout_height="match_parent"
     tools:context=".view.fragment.mystory.MyStoryFragment">
 
-    <!-- LinearLayout to arrange text and image vertically -->
+    <!-- LinearLayout to arrange text and image vertically with the text at the top -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
+        android:gravity="center_horizontal|top"
         android:padding="16dp">
 
-        <!-- TextView with larger, centered text -->
+        <!-- TextView with centered text for the fragment name -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello"
+            android:text="MyStoryFragment"
             android:textSize="24sp"
             android:textColor="#000000"
-            android:layout_marginBottom="16dp" />
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
 
-        <!-- ImageView for displaying the image -->
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_dicoding"
-            android:contentDescription="Image Dicoding"
-            android:layout_marginTop="16dp" />
+        <!-- ImageView for displaying the image below the text -->
+
 
     </LinearLayout>
 
