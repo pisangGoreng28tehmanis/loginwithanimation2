@@ -8,42 +8,42 @@
     <!-- Home Fragment -->
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.app.ui.HomeFragment"
+        android:name="com.dicoding.picodiploma.loginwithanimation.view.fragment.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
 
     <!-- Story Fragment -->
     <fragment
         android:id="@+id/nav_story"
-        android:name="com.example.app.ui.StoryFragment"
+        android:name="com.dicoding.picodiploma.loginwithanimation.view.fragment.story.StoryFragment"
         android:label="Story"
         tools:layout="@layout/fragment_story" />
 
     <!-- My Story Fragment -->
     <fragment
         android:id="@+id/nav_my_story"
-        android:name="com.example.app.ui.MyStoryFragment"
+        android:name="com.dicoding.picodiploma.loginwithanimation.view.fragment.mystory.MyStoryFragment"
         android:label="My Story"
         tools:layout="@layout/fragment_my_story" />
 
     <!-- Dashboard Fragment -->
     <fragment
         android:id="@+id/nav_dashboard"
-        android:name="com.example.app.ui.DashboardFragment"
+        android:name="com.dicoding.picodiploma.loginwithanimation.view.fragment.home.HomeFragment"
         android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <!-- Maps Fragment -->
     <fragment
         android:id="@+id/nav_maps"
-        android:name="com.example.app.ui.MapsFragment"
+        android:name="com.dicoding.picodiploma.loginwithanimation.view.fragment.maps.MapsFragment"
         android:label="Maps"
         tools:layout="@layout/fragment_maps" />
 
     <!-- Logout Fragment -->
-    <fragment
+    <!--<fragment
         android:id="@+id/nav_logout"
         android:name="com.example.app.ui.LogoutFragment"
         android:label="Logout"
-        tools:layout="@layout/fragment_logout" />
+        tools:layout="@layout/fragment_logout" />-->
 </navigation>

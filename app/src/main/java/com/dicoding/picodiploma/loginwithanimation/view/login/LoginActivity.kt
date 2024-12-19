@@ -1,6 +1,6 @@
 package com.dicoding.picodiploma.loginwithanimation.view.login
 
-import DashboardFragment
+
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
@@ -13,13 +13,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
-import com.dicoding.picodiploma.loginwithanimation.DashboardActivity
+
 import com.dicoding.picodiploma.loginwithanimation.R
 import com.dicoding.picodiploma.loginwithanimation.databinding.ActivityLoginBinding
 import com.dicoding.picodiploma.loginwithanimation.data.UserRepository
 import kotlinx.coroutines.launch
 import com.dicoding.picodiploma.loginwithanimation.data.api.Result
 import com.dicoding.picodiploma.loginwithanimation.data.pref.UserModel
+import com.dicoding.picodiploma.loginwithanimation.view.dashboard.DashboardActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -108,6 +109,7 @@ class LoginActivity : AppCompatActivity() {
         finish() // Close LoginActivity after navigating to DashboardActivity
     }
 
+
     private fun playAnimation() {
 
         ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_Y, -20f, 20f).apply {
@@ -155,7 +157,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun showSuccessDialog(userModel: UserModel) {
+    /*private fun showSuccessDialog(userModel: UserModel) {
         AlertDialog.Builder(this).apply {
             setTitle("Login Sukses!")
             setMessage("Selamat datang, ${userModel.name}")  // Tampilkan nama pengguna
@@ -180,7 +182,7 @@ class LoginActivity : AppCompatActivity() {
             create()
             show()
         }
-    }
+    }*/
 
 
 
