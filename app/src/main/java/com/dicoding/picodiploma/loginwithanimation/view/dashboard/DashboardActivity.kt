@@ -28,26 +28,16 @@ class DashboardActivity : AppCompatActivity() {
         // Enable edge-to-edge UI
         enableEdgeToEdge()
 
+        // Retrieve userModel and token from the Intent
         val userModel = intent.getParcelableExtra<UserModel>("USER_MODEL")
-        userModel?.let {
-            // Use userModel data here
-            // For example, display user information
-            println("User Name: ${it.name}")
-        }
+        val token = userModel?.token
+
+        // Ensure the token is passed to the necessary API service for story retrieval
         val storyFragment = StoryFragment().apply {
             arguments = Bundle().apply {
                 putParcelable("USER_MODEL", userModel)
             }
         }
-        /*supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, storyFragment)
-            .commit()*/
-
-        // Retrieve user model from the Intent
-        //userModel = intent.getParcelableExtra("USER_MODEL")!!
-
-        // Display a welcome message
-        //binding.welcomeTextView.text = "Selamat datang, ${userModel.name}"
 
         // Set up Bottom Navigation with Navigation Component
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -61,5 +51,6 @@ class DashboardActivity : AppCompatActivity() {
             insets
         }
     }
+
 }
 

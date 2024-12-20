@@ -13,7 +13,7 @@ import com.dicoding.picodiploma.loginwithanimation.view.welcome.WelcomeActivity
 
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel> {
-        ViewModelFactory.getInstance(this)
+        ViewModelFactory.getUserViewModelFactory(this)
     }
     private lateinit var binding: ActivityMainBinding
 

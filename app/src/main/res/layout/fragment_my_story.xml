@@ -25,6 +25,12 @@
             android:layout_marginBottom="16dp"/>
 
         <!-- ImageView for displaying the image below the text -->
+        <Button
+            android:id="@+id/uploadStoryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Story"
+            android:layout_centerInParent="true"/>
 
 
     </LinearLayout>
