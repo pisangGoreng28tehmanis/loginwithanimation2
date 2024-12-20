@@ -29,7 +29,7 @@ interface ApiService {
         @Field("token") token: String? = null
     ): LoginResponse
 
-    @FormUrlEncoded
+
     @GET("stories")
     suspend fun getStories(
         @Header("Authorization") token: String,
